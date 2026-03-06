@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Message Analyzer</title>
+
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div id="particles-js"></div>
+
+<div class="container">
+
+<h1>AI MESSAGE ANALYZER</h1>
+
+<p class="subtitle">
+Analise automaticamente mensagens usando micro IA de linguagem natural
+</p>
+
+<textarea
+id="message"
+rows="6"
+placeholder="Cole ou digite uma mensagem para análise..."
+></textarea>
+
+<button onclick="analyze()">
+ANALISAR COM IA
+</button>
+
+
+<!-- PROCESSAMENTO -->
+
+<div id="loading" style="display:none;">
+
+<p class="processing">
+Processando linguagem natural...
+</p>
+
+</div>
+
+
+<!-- RESULTADO -->
+
+<div id="results" class="result" style="display:none;">
+
+<h2>Resultado da análise</h2>
+
+<p id="resumo"></p>
+<p id="prioridade"></p>
+<p id="categoria"></p>
+<p id="sentimento"></p>
+<p id="resposta"></p>
+
+<button onclick="copiarResposta()" class="copy-button">
+Copiar resposta
+</button>
+
+</div>
+
+
+<h3>Histórico</h3>
+
+<div id="history"></div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<script src="particles.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
