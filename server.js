@@ -16,13 +16,25 @@ function detectarPrioridade(texto){
 
 texto = texto.toLowerCase()
 
-const alta = ["urgente","imediato","hoje","agora","rápido"]
-const media = ["amanhã","essa semana","quando possível"]
+const alta = [
+"urgente",
+"imediato",
+"hoje",
+"agora",
+"rápido"
+]
+
+const media = [
+"amanhã",
+"essa semana",
+"quando possível"
+]
 
 if(alta.some(p => texto.includes(p))) return "Alta"
 if(media.some(p => texto.includes(p))) return "Média"
 
 return "Baixa"
+
 }
 
 function classificarMensagem(texto){
@@ -37,7 +49,8 @@ return "Financeiro"
 
 if(texto.includes("erro") ||
 texto.includes("problema") ||
-texto.includes("não funciona")){
+texto.includes("não funciona") ||
+texto.includes("bug")){
 return "Suporte"
 }
 
@@ -48,6 +61,7 @@ return "Comercial"
 }
 
 return "Geral"
+
 }
 
 function gerarResumo(texto){
@@ -56,19 +70,54 @@ const doc = nlp(texto)
 const frases = doc.sentences().out("array")
 
 return frases[0] || texto.substring(0,100)
+
 }
 
 function detectarSentimento(texto){
 
+texto = texto.toLowerCase()
+
 const resultado = sentiment.analyze(texto)
+const score = resultado.score
 
-if(resultado.score > 1) return "Positivo 😀"
-if(resultado.score < -1) return "Negativo 😡"
+const frustracao = ["erro","problema","não funciona","bug","falha"]
+const urgencia = ["urgente","agora","imediato","rápido"]
+const elogio = ["obrigado","ótimo","perfeito","excelente"]
 
-return "Neutro 😐"
+if(frustracao.some(p => texto.includes(p))){
+return "Frustração 😤"
 }
 
-function sugerirResposta(categoria){
+if(urgencia.some(p => texto.includes(p))){
+return "Urgência ⚠️"
+}
+
+if(elogio.some(p => texto.includes(p))){
+return "Satisfação 👍"
+}
+
+if(score >= 3) return "Muito positivo 😀"
+if(score > 0) return "Positivo 🙂"
+if(score === 0) return "Neutro 😐"
+if(score > -3) return "Negativo 🙁"
+
+return "Muito negativo 😡"
+
+}
+
+function sugerirResposta(categoria, sentimento){
+
+if(sentimento.includes("Frustração")){
+return "Sentimos muito pelo problema relatado. Nossa equipe técnica já está analisando e retornará em breve."
+}
+
+if(sentimento.includes("Urgência")){
+return "Entendemos a urgência da sua solicitação e vamos priorizar o atendimento."
+}
+
+if(sentimento.includes("Satisfação")){
+return "Ficamos felizes em ajudar! Qualquer outra dúvida estamos à disposição."
+}
 
 const respostas = {
 
@@ -87,20 +136,20 @@ Geral:
 }
 
 return respostas[categoria]
+
 }
 
 app.post("/analyze",(req,res)=>{
 
-const {message, userId} = req.body
+const {message} = req.body
 
 const prioridade = detectarPrioridade(message)
 const categoria = classificarMensagem(message)
 const resumo = gerarResumo(message)
 const sentimento = detectarSentimento(message)
-const resposta = sugerirResposta(categoria)
+const resposta = sugerirResposta(categoria, sentimento)
 
 const analise = {
-userId,
 mensagem: message,
 prioridade,
 categoria,
@@ -121,20 +170,10 @@ resposta
 
 })
 
-app.get("/history/:userId",(req,res)=>{
-
-const userId = req.params.userId
-
-const userHistory = historico.filter(
-item => item.userId === userId
-)
-
-res.json(userHistory)
-
+app.get("/history",(req,res)=>{
+res.json(historico)
 })
 
 app.listen(3000,()=>{
-
 console.log("Servidor rodando em http://localhost:3000")
-
 })
