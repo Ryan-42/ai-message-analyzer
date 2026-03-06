@@ -2,16 +2,24 @@ const express = require("express")
 const cors = require("cors")
 const nlp = require("compromise")
 const Sentiment = require("sentiment")
+const path = require("path")
 
 const app = express()
 const sentiment = new Sentiment()
 
-// PORTA PARA DEPLOY
+// Porta para produção (Render) ou local
 const PORT = process.env.PORT || 3000
 
 app.use(cors())
 app.use(express.json())
-app.use(express.static("public"))
+
+// Servir arquivos estáticos
+app.use(express.static(path.join(__dirname, "public")))
+
+// Rota principal (garante que o index carregue)
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"))
+})
 
 const historico = []
 
@@ -92,7 +100,7 @@ if(resultado.score < -1) return "Negativo 😡"
 return "Neutro 😐"
 }
 
-// Resposta automática
+// Resposta sugerida
 function sugerirResposta(categoria){
 
 const respostas = {
@@ -114,7 +122,7 @@ Geral:
 return respostas[categoria] || respostas["Geral"]
 }
 
-// ROTA DE ANÁLISE
+// API de análise
 app.post("/analyze",(req,res)=>{
 
 try{
@@ -152,24 +160,24 @@ resposta
 
 }catch(error){
 
-console.error("Erro na análise:",error)
+console.error("Erro na análise:", error)
 
 res.status(500).json({
-error:"Erro interno ao analisar mensagem"
+error: "Erro interno ao analisar mensagem"
 })
 
 }
 
 })
 
-// HISTÓRICO
+// Histórico
 app.get("/history",(req,res)=>{
 
 res.json(historico)
 
 })
 
-// INICIAR SERVIDOR
+// Inicializar servidor
 app.listen(PORT,()=>{
 
 console.log(`Servidor rodando na porta ${PORT}`)
