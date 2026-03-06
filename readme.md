@@ -1,12 +1,12 @@
 # AI Message Analyzer
 
-Aplicação web que utiliza **Processamento de Linguagem Natural (NLP)** para analisar automaticamente mensagens recebidas e gerar insights úteis para equipes de suporte, atendimento ou comercial.
+Aplicação web que utiliza **Processamento de Linguagem Natural (NLP)** para analisar automaticamente mensagens e gerar **insights inteligentes para atendimento e suporte**.
 
-A ferramenta classifica mensagens, detecta prioridade, analisa sentimento e sugere respostas automáticas para acelerar o atendimento.
+O sistema classifica mensagens, detecta prioridade, identifica emoções do usuário e sugere respostas automáticas para acelerar o atendimento.
 
 ---
 
-#  Demo Online
+# Demo Online
 
 Acesse a aplicação funcionando:
 
@@ -14,74 +14,124 @@ https://ai-message-analyzer-k4yb.onrender.com
 
 ---
 
-#  Sobre o Projeto
+# Visão Geral
 
-Empresas recebem diariamente diversas mensagens de clientes, suporte ou solicitações internas.
+Empresas recebem diariamente centenas de mensagens de clientes, suporte ou solicitações internas.
 
-Analisar manualmente todas essas mensagens pode gerar:
+Analisar manualmente essas mensagens pode causar:
 
-* demora no atendimento
-* dificuldade de priorizar solicitações
-* perda de informações importantes
-* retrabalho para equipes de suporte
+- demora no atendimento
+- dificuldade de priorizar solicitações urgentes
+- perda de informações importantes
+- retrabalho para equipes de suporte
 
-O **AI Message Analyzer** funciona como um assistente inteligente que analisa automaticamente cada mensagem e fornece informações importantes para facilitar a tomada de decisão.
-
----
-
-#  Funcionalidades
-
-✔ Classificação automática de mensagens
-✔ Detecção de prioridade (Alta, Média ou Baixa)
-✔ Análise de sentimento da mensagem
-✔ Geração de resumo automático
-✔ Sugestão de resposta automática
-✔ Histórico de mensagens analisadas
+O **AI Message Analyzer** atua como um **assistente inteligente de triagem**, analisando automaticamente cada mensagem e gerando informações úteis para tomada de decisão.
 
 ---
 
-#  Tecnologias Utilizadas
+# Funcionalidades
 
-Backend
+O sistema realiza múltiplas análises automáticas sobre cada mensagem:
 
-* Node.js
-* Express.js
+### Classificação de Categoria
+Detecta automaticamente o tipo da mensagem:
 
-Processamento de Linguagem Natural
+- Financeiro
+- Suporte Técnico
+- Comercial
+- Geral
 
-* compromise (NLP)
-* sentiment (análise de sentimento)
+### Detecção de Prioridade
+Identifica urgência da solicitação:
 
-Frontend
+- Alta
+- Média
+- Baixa
 
-* HTML
-* CSS
-* JavaScript
+### Análise de Sentimento Avançada
 
-Ferramentas
+Detecta emoções e contexto da mensagem:
 
-* Git
-* GitHub
-* Render (deploy da aplicação)
+- Frustração 😤
+- Urgência ⚠️
+- Satisfação 👍
+- Positivo 🙂
+- Negativo 🙁
+- Neutro 😐
+
+### Resumo Automático
+Gera um resumo da mensagem utilizando **NLP com compromise**.
+
+### Resposta Sugerida Inteligente
+O sistema sugere respostas automáticas considerando:
+
+- categoria da mensagem
+- sentimento detectado
+
+### Histórico de Análises
+Armazena as mensagens analisadas para consulta posterior.
 
 ---
 
-#  Arquitetura do Projeto
+# Tecnologias Utilizadas
 
-A aplicação segue uma arquitetura simples de API + interface web.
+## Backend
 
-Fluxo:
+- Node.js
+- Express.js
+- REST API
 
-Usuário envia mensagem →
-API processa com NLP →
-Sistema classifica prioridade e categoria →
-Sistema analisa sentimento →
-Sistema gera resposta sugerida →
+## Processamento de Linguagem Natural
+
+- compromise (NLP)
+- sentiment (análise de sentimento)
+
+## Frontend
+
+- HTML5
+- CSS3
+- JavaScript
+
+## Visual
+
+- particles.js (background animado)
+
+## DevOps / Deploy
+
+- Git
+- GitHub
+- Render (deploy cloud)
+
+---
+
+# Arquitetura da Aplicação
+
+A aplicação segue uma arquitetura simples baseada em **API + Interface Web**.
+
+Fluxo de funcionamento:
+
+    Usuário envia mensagem
+↓
+API recebe requisição
+↓
+Processamento de linguagem natural
+↓
+Classificação de categoria
+↓
+Detecção de prioridade
+↓
+Análise de sentimento
+↓
+Geração de resumo
+↓
+Sugestão de resposta
+↓
 Resultado exibido na interface
 
+
 ---
 
-#  Estrutura do Projeto
+# Estrutura do Projeto
 
 ai-message-analyzer
 
@@ -93,97 +143,103 @@ public/
 index.html → interface da aplicação
 script.js → lógica do frontend
 style.css → estilos da interface
+particles.js → animação de fundo
 
 README.md → documentação do projeto
 
 ---
 
-# ▶ Como Executar Localmente
+# Como Executar Localmente
 
-Clone o repositório
+### 1 Clone o repositório
 
 git clone https://github.com/Ryan-42/ai-message-analyzer.git
 
-Entre na pasta do projeto
+
+### 2 Entre na pasta do projeto
 
 cd ai-message-analyzer
 
-Instale as dependências
+
+### 3 Instale as dependências
 
 npm install
 
-Execute o servidor
+
+### 4 Execute o servidor
 
 node server.js
 
-Abra no navegador
+
+### 5 Abra no navegador
 
 http://localhost:3000
 
----
 
-#  Exemplo de Análise
-
-Mensagem enviada
-
-"Olá, estou com um problema urgente no sistema de pagamento."
-
-Resultado gerado pelo sistema
+### Resultado gerado
 
 Resumo
-problema urgente no sistema de pagamento
+
+erro no sistema e preciso resolver urgente
 
 Prioridade
+
 Alta
 
 Categoria
-Financeiro
+
+Suporte
 
 Sentimento
-Negativo
+
+Frustração 😤
 
 Resposta sugerida
-Vamos verificar as informações financeiras e retornaremos em breve.
+
+Sentimos muito pelo problema relatado. Nossa equipe técnica já está analisando e retornará em breve.
 
 ---
 
-#  Possíveis Evoluções
-
-O projeto pode evoluir para incluir funcionalidades mais avançadas como:
-
-* integração com IA generativa (OpenAI ou LLMs)
-* armazenamento em banco de dados
-* dashboard com métricas de mensagens
-* sistema de login de usuários
-* integração com email corporativo
-* integração com sistemas de suporte
-
----
-
-#  Aplicações no Mundo Real
+# Aplicações no Mundo Real
 
 Este tipo de sistema pode ser utilizado em:
 
-* help desk
-* suporte técnico
-* atendimento ao cliente
-* triagem de emails corporativos
-* automação de comunicação empresarial
+- Help Desk
+- Suporte Técnico
+- Atendimento ao Cliente
+- Triagem de emails corporativos
+- Automação de comunicação empresarial
+- CRM e sistemas de ticket
 
 ---
 
-#  Autor
+# Possíveis Evoluções
+
+O projeto pode evoluir para incluir:
+
+- autenticação de usuários
+- histórico individual por usuário
+- armazenamento em banco de dados
+- dashboard com métricas de mensagens
+- integração com email corporativo
+- integração com sistemas de ticket
+- uso de IA generativa (LLMs)
+- classificação de intenção do usuário
+
+---
+
+# Autor
 
 Ryan Monteiro da Silva
 
-GitHub
+GitHub  
 https://github.com/Ryan-42
 
-LinkedIn
+LinkedIn  
 https://www.linkedin.com/in/ryan-monteiro-da-silva-71bb7b27a
 
 ---
 
-#  Licença
+# Licença
 
-Projeto desenvolvido para fins educacionais e de portfólio.
+Projeto desenvolvido para fins educacionais e portfólio.
