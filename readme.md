@@ -6,7 +6,7 @@ A ferramenta classifica mensagens, detecta prioridade, analisa sentimento e suge
 
 ---
 
-# 🌐 Demo Online
+#  Demo Online
 
 Acesse a aplicação funcionando:
 
@@ -14,7 +14,7 @@ https://ai-message-analyzer-k4yb.onrender.com
 
 ---
 
-# 📌 Sobre o Projeto
+#  Sobre o Projeto
 
 Empresas recebem diariamente diversas mensagens de clientes, suporte ou solicitações internas.
 
@@ -29,7 +29,7 @@ O **AI Message Analyzer** funciona como um assistente inteligente que analisa au
 
 ---
 
-# 🚀 Funcionalidades
+#  Funcionalidades
 
 ✔ Classificação automática de mensagens
 ✔ Detecção de prioridade (Alta, Média ou Baixa)
@@ -40,7 +40,7 @@ O **AI Message Analyzer** funciona como um assistente inteligente que analisa au
 
 ---
 
-# 🧠 Tecnologias Utilizadas
+#  Tecnologias Utilizadas
 
 Backend
 
@@ -66,7 +66,7 @@ Ferramentas
 
 ---
 
-# 🏗 Arquitetura do Projeto
+#  Arquitetura do Projeto
 
 A aplicação segue uma arquitetura simples de API + interface web.
 
@@ -81,7 +81,7 @@ Resultado exibido na interface
 
 ---
 
-# 📂 Estrutura do Projeto
+#  Estrutura do Projeto
 
 ai-message-analyzer
 
@@ -98,7 +98,7 @@ README.md → documentação do projeto
 
 ---
 
-# ▶️ Como Executar Localmente
+# ▶ Como Executar Localmente
 
 Clone o repositório
 
@@ -122,7 +122,7 @@ http://localhost:3000
 
 ---
 
-# 📊 Exemplo de Análise
+#  Exemplo de Análise
 
 Mensagem enviada
 
@@ -147,7 +147,7 @@ Vamos verificar as informações financeiras e retornaremos em breve.
 
 ---
 
-# 💡 Possíveis Evoluções
+#  Possíveis Evoluções
 
 O projeto pode evoluir para incluir funcionalidades mais avançadas como:
 
@@ -160,7 +160,7 @@ O projeto pode evoluir para incluir funcionalidades mais avançadas como:
 
 ---
 
-# 🎯 Aplicações no Mundo Real
+#  Aplicações no Mundo Real
 
 Este tipo de sistema pode ser utilizado em:
 
@@ -172,7 +172,7 @@ Este tipo de sistema pode ser utilizado em:
 
 ---
 
-# 👨‍💻 Autor
+#  Autor
 
 Ryan Monteiro da Silva
 
@@ -184,6 +184,6 @@ https://www.linkedin.com/in/ryan-monteiro-da-silva-71bb7b27a
 
 ---
 
-# 📄 Licença
+#  Licença
 
 Projeto desenvolvido para fins educacionais e de portfólio.
