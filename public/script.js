@@ -1,3 +1,10 @@
+let userId = localStorage.getItem("ai_user")
+
+if(!userId){
+userId = "user_" + Math.random().toString(36).substring(2)
+localStorage.setItem("ai_user", userId)
+}
+
 async function analyze(){
 
 const message = document.getElementById("message").value
@@ -18,8 +25,7 @@ headers:{
 "Content-Type":"application/json"
 },
 
-body:JSON.stringify({message})
-
+body:JSON.stringify({message, userId})
 })
 
 const data = await response.json()
@@ -49,7 +55,7 @@ alert("Resposta copiada!")
 
 async function carregarHistorico(){
 
-const response = await fetch("/history")
+const response = await fetch("/history/" + userId)
 const data = await response.json()
 
 const container = document.getElementById("history")
