@@ -1,28 +1,31 @@
 # AI Message Analyzer
 
-Aplicação web que utiliza NLP para analisar mensagens automaticamente.
+Aplicação web que utiliza NLP para analisar automaticamente mensagens de clientes.
 
-Funções da aplicação:
+## Funcionalidades
 
-✔ Classificação de categoria
-✔ Detecção de prioridade
-✔ Análise de sentimento
-✔ Geração de resposta automática
-✔ Histórico de análises
+- Classificação automática de mensagens
+- Detecção de prioridade
+- Análise de sentimento
+- Sugestão de resposta automática
+- Histórico de análises
 
-Tecnologias utilizadas:
+## Tecnologias
 
 - Node.js
 - Express
-- Compromise NLP
+- NLP (Compromise)
 - Sentiment Analysis
 - HTML / CSS / JavaScript
 
-Objetivo do projeto:
+## Preview
 
-Demonstrar aplicação prática de processamento de linguagem natural em sistemas de suporte e atendimento.
+<img src="preview.png">
 
-Como rodar o projeto:
+## Como executar
 
 npm install
-node server.js  
+
+node server.js
+
+http://localhost:3000
